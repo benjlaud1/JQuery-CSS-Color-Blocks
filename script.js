@@ -1,44 +1,25 @@
 $(document).ready(function (){
+
+  // Add a cube to the DOM of the color button clicked
   $('.color-button').on('click',function () {
-    console.log('clicked: ' + $(this).data('color'));
-    var colorToCheck = $(this).data('color');
-    displayColorCube(colorToCheck);
-  });
+    var colorOfCube = $(this).data('color');
+    $('.container').append("<div class='color-cube " + colorOfCube + "'></div>");
+    // Update the counter for the current cube count
+    updateCounter(colorOfCube);
+  }); // end color-button on click
+
+  // Remove a cube that is selected from the DOM
+  $('.container').on('click', '.color-cube', function () {
+    var selectedCube = $(this).attr('class').split(' ')[1];
+    $(this).remove();
+    // Update the counter for the current cube count
+    updateCounter(selectedCube);
+  }); // end container, color-cube on click
+
 }); // end document ready
 
-// function to append cubes to the DOM
-function displayColorCube (colorClicked) {
-  switch (colorClicked) {
-    case 'red':
-      console.log('reddy');
-      $('.container').append("<div class='color-cube " + colorClicked + "'></div>");
-      // sample: <div class='color-cube red'></div>
-      // TODO add in counter
-
-
-      break;
-    case 'yellow':
-      console.log('yellowy');
-      $('.container').append("<div class='color-cube " + colorClicked + "'></div>");
-      // add to yellow counter
-      addToCounter(colorClicked);
-      break;
-    case 'green':
-      console.log('greeny');
-      $('.container').append("<div class='color-cube " + colorClicked + "'></div>");
-      break;
-    case 'blue':
-      console.log('bluey');
-      $('.container').append("<div class='color-cube " + colorClicked + "'></div>");
-      break;
-    default:
-      break;
-  }
-
-}
-
-// function addToCounter
-function addToCounter (color) {
-
-  $().val($( color ).val() + 1 );
-}
+// function updateCounter - updates the cube count to current number of cubes
+function updateCounter (color) {
+  var cubeCount = $("." + color).length; // counts the number elements on the DOM of class 'color'
+  $('#' + color).text(cubeCount);
+} // end updateCounter

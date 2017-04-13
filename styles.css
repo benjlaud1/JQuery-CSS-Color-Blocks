@@ -6,16 +6,36 @@
   border: 1px solid black;
 }
 
+body {
+  background-color: blanchedAlmond;
+}
+
 .red {
   background-color: red;
+}
+
+#red {
+  color: red;
+}
+
+#yellow {
+  color: gold;
 }
 
 .yellow {
   background-color: yellow;
 }
 
+#green {
+  color: green;
+}
+
 .green {
   background-color: green;
+}
+
+#blue {
+  color: blue;
 }
 
 .blue {
