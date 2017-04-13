@@ -1,6 +1,7 @@
-$(document).ready(function (){
+$(function (){ // document ready
 
   // Add a cube to the DOM of the color button clicked
+  // Button press event listener
   $('.color-button').on('click',function () {
     var colorOfCube = $(this).data('color');
     $('.container').append("<div class='color-cube " + colorOfCube + "'></div>");
@@ -9,6 +10,7 @@ $(document).ready(function (){
   }); // end color-button on click
 
   // Remove a cube that is selected from the DOM
+  // Cube clicked event listener
   $('.container').on('click', '.color-cube', function () {
     var selectedCube = $(this).attr('class').split(' ')[1];
     $(this).remove();
