@@ -1,6 +1,8 @@
+// Intialize the DOM
 $(document).ready(documentReady);
 
-function documentReady (){ // document ready
+// run on document.ready
+function documentReady (){
   // Button press event listener
   $('.color-button').on('click', appendColorCube);
   // Cube clicked event listener
@@ -13,7 +15,7 @@ function appendColorCube() {
   $('.container').append("<div class='color-cube " + colorOfCube + "'></div>");
   // Update the counter for the current cube count
   updateCounter(colorOfCube);
-} // end color-button on click
+} // end appendColorCube
 
 // Remove a cube that is selected from the DOM
 function removeColorCube () {
@@ -21,7 +23,7 @@ function removeColorCube () {
   $(this).remove();
   // Update the counter for the current cube count
   updateCounter(selectedCube);
-} // end container, color-cube on click
+} // end removeColorCube
 
 // function updateCounter - updates the cube count to current number of cubes
 function updateCounter (color) {
